@@ -60,8 +60,10 @@ class TestSmokeTest():
     self.driver.find_element(By.LINK_TEXT, "Join").click()
     elements = self.driver.find_elements(By.NAME, "fname")
     assert len(elements) > 0
-    self.driver.find_element(By.NAME, "fname").click()
-    self.vars["Lucas"] = self.driver.find_element(By.NAME, "fname").get_attribute("value")
+    self.driver.find_element(By.NAME, "fname").send_keys("Lucas")
+    self.driver.find_element(By.NAME, "lname").send_keys("Mendonca")
+    self.driver.find_element(By.NAME, "bizname").send_keys("Business")
+    self.driver.find_element(By.NAME, "biztitle").send_keys("CEO")
     self.driver.find_element(By.NAME, "submit").click()
     elements = self.driver.find_elements(By.NAME, "email")
     assert len(elements) > 0
